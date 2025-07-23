@@ -25,7 +25,10 @@ export function EntryClient({pages}={}){
       } 
       else DomElement = await callback();
       // document.body.replaceWith(DomElement);
-      DomElement.then(element=>{
+      // console.log(DomElement)
+      DomElement instanceof HTMLElement 
+      ? document.body.replaceWith(DomElement)
+      : DomElement.then(element=>{
             document.body.replaceWith(element);
       })
     }
