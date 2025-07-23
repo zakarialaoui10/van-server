@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/zakarialaoui10/van-server#readme",
   "dependencies": {
+    "express": "^5.1.0",
     "jsdom": "^26.1.0",
     "ziko-server": "^0.0.3"
   }
