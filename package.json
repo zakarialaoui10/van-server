@@ -1,0 +1,40 @@
+{
+  "name": "van-server",
+  "version": "0.0.0",
+  "description": "server-side rendering for VanJS with file-based routing and client-side hydration.",
+  "source": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    },
+    "./server": {
+      "import": "./src/server.js"
+    },
+    "./entry-client": {
+      "import": "./src/entry-client.js"
+    },
+    "./entry-server": {
+      "import": "./src/entry-server.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakarialaoui10/van-server.git"
+  },
+  "keywords": [
+    "vanjs"
+  ],
+  "author": "zakaria elalaoui",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/zakarialaoui10/van-server/issues"
+  },
+  "homepage": "https://github.com/zakarialaoui10/van-server#readme",
+  "dependencies": {
+    "ziko-server": "^0.0.3"
+  }
+}
