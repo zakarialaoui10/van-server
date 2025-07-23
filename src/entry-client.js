@@ -24,7 +24,10 @@ export function EntryClient({pages}={}){
         DomElement = callback.call(this, params);
       } 
       else DomElement = await callback();
-      document.body.replaceWith(DomElement);
+      // document.body.replaceWith(DomElement);
+      DomElement.then(element=>{
+            document.body.replaceWith(element);
+      })
     }
     hydrate(location.pathname.slice(1));
   }))
