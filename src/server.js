@@ -3,6 +3,12 @@ import express from "express";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
+import {JSDOM} from "jsdom"
+const {document} = new JSDOM().window;
+globalThis.document = document
+
+const renderDomToString=UIElement=>UIElement.outerHTML;
+
 export async function createServer({ baseDir = process.cwd() } = {}) {
   const isProduction = process.env.NODE_ENV === "production";
   const port = process.env.PORT || 5173;
@@ -64,9 +70,13 @@ export async function createServer({ baseDir = process.cwd() } = {}) {
       }
       const rendered = await render(url);
       const page = await rendered(url);
+      // const body = await page.body
+      // body.then(e=>console.log())
+      // console.log(page.D)
+      const body = await page.DomElement
+      // console.log(renderDomToString(body))
       const html = template
-        .replace(`<!--app-head-->`, page.head ?? "")
-        .replace(`<!--app-html-->`, page.html ?? "");
+           .replace(`<!--app-html-->`, renderDomToString(body) ?? "")
 
       res.status(200).set({ "Content-Type": "text/html" }).send(html);
     } catch (e) {
