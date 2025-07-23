@@ -17,7 +17,23 @@ npm i van-server
  - ✅ **Client Side Hydration** 
  - ✅ **Supports Dynamic Routes**
  - ✅ **Supports both Sync And Async rendering**
+ - ✅ **[Van-mdx](https://github.com/zakarialaoui10/van-mdx) Supports**
 
-# Supports 
+## Structure 
+```
+|--entry-client.js
+|--entry-server.js
+|--server.js
+|--index.html
+|--pages/
+    |---page1.js
+    |---pages2.js
+    |---nested/
+          |--
+```
+
+# ⭐️ Show your support
+If you appreciate the project, kindly demonstrate your support by giving it a star!
 
 # Licence
+This projet is licensed under the terms of MIT License
