@@ -5,7 +5,13 @@ import {
   isDynamic,
 } from "ziko-server/utils";
 
-import { renderToString } from "./utils/renderToString.js"
+// import { renderDomToString } from "ziko-server/server-only-utils"
+
+import {JSDOM} from "jsdom"
+const {document} = new JSDOM().window;
+globalThis.document = document
+
+const renderDomToString=UIElement=>UIElement.outerHTML;
 
 export function EntryServer({ pages } = {}) {
   return async function render(path) {
@@ -27,7 +33,7 @@ export function EntryServer({ pages } = {}) {
     } 
     else DomElement = await callback();
 
-    const html = renderToString(DomElement);
+    const html = renderDomToString(DomElement);
     return {
       html,
     };
