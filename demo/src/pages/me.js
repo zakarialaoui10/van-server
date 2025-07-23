@@ -1,8 +1,12 @@
-import van from "vanjs-core"
-async function App(){
-    const api = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-    const res = await api.json()
-    return van.tags.h1(res.title)
+import van from "vanjs-core";
+import Home from "../contents/home.mdx"
+const {div, h1, p, a} = van.tags;
+import "../app.css"
 
+const App = () =>{
+    return div(
+        "ME"
+    )
+    // return van.tags.h1("He");
 }
 export default App

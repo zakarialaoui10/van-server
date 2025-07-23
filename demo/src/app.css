@@ -1,0 +1,35 @@
+html, body{
+    margin: 1em;
+    padding: 5px;
+    font-family: Verdana;
+    font-size: 16px;
+    background-color: antiquewhite;
+    color: darkslategrey;
+}
+
+strong{
+    color : darkblue;
+}
+
+a{
+    text-decoration: underline;
+    color :blueviolet
+}
+a:hover{
+    color: blue;
+}
+
+.Layout{
+    display: flex;
+    border: 1px red solid;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 100px;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px red solid;   
+}
