@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import express from "express";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { renderDomToString } from "ziko-server/server-only-utils"
+import { renderDomToString } from "ziko-server/server-only-utils";
 
 export async function createServer({ baseDir = process.cwd() } = {}) {
   const isProduction = process.env.NODE_ENV === "production";
@@ -13,11 +13,7 @@ export async function createServer({ baseDir = process.cwd() } = {}) {
   const templateHtml = isProduction
     ? await fs.readFile(path.join(baseDir, "./dist/client/index.html"), "utf-8")
     : "";
-
   const app = express();
-
-  // Add Vite or respective production middlewares
-  /** @type {import('vite').ViteDevServer | undefined} */
   let vite;
   if (!isProduction) {
     const { createServer } = await import("vite");
@@ -40,11 +36,9 @@ export async function createServer({ baseDir = process.cwd() } = {}) {
   // Serve HTML
   app.use("*", async (req, res) => {
     try {
-      const url = req.originalUrl.replace(base, "");
-
-      /** @type {string} */
+      let url = req.originalUrl.replace(base, "");
+      if(url.endsWith("/")) url=url.slice(0, -1)
       let template;
-      /** @type {import('./entry-server.js').render} */
       let render;
       if (!isProduction) {
         // Always read fresh template in development
@@ -68,10 +62,12 @@ export async function createServer({ baseDir = process.cwd() } = {}) {
       // const body = await page.body
       // body.then(e=>console.log())
       // console.log(page.D)
-      const body = await page.DomElement
+      const body = await page.DomElement;
       // console.log(renderDomToString(body))
-      const html = template
-           .replace(`<!--app-html-->`, renderDomToString(body) ?? "")
+      const html = template.replace(
+        `<!--app-html-->`,
+        renderDomToString(body) ?? "",
+      );
 
       res.status(200).set({ "Content-Type": "text/html" }).send(html);
     } catch (e) {
