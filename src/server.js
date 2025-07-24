@@ -2,12 +2,7 @@ import fs from "node:fs/promises";
 import express from "express";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-
-import {JSDOM} from "jsdom"
-const {document} = new JSDOM().window;
-globalThis.document = document
-
-const renderDomToString=UIElement=>UIElement.outerHTML;
+import { renderDomToString } from "ziko-server/server-only-utils"
 
 export async function createServer({ baseDir = process.cwd() } = {}) {
   const isProduction = process.env.NODE_ENV === "production";

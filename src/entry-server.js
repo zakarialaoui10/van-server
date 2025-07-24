@@ -13,7 +13,7 @@ import {
 
 // const renderDomToString=UIElement=>UIElement.outerHTML;
 
-export function EntryServer({ pages } = {}) {
+export async function EntryServer({ pages } = {}) {
   return async function render(path) {
     const routes = Object.keys(pages);
     const root = "./pages/";

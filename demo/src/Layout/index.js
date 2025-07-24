@@ -10,6 +10,7 @@ export default function Layout(Content){
                 a({href : "/me"}, "Home"),
                 a({href : "/me"}, "Get Started"),
                 a({href : "/me"}, "About"),
+                a({href : "/me"}, "More")
             )
         ),
         main(
