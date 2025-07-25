@@ -1,7 +1,7 @@
 import van from "vanjs-core";
 import Home from "../contents/home.mdx"
 const {div, h1, p, a} = van.tags;
-import "../app.css"
+import "@styles/app.css"
 
 const App = () =>{
     return div(

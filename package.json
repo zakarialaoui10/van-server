@@ -37,6 +37,6 @@
   "dependencies": {
     "express": "^4.21.2",
     "jsdom": "^26.1.0",
-    "ziko-server": "^0.0.6"
+    "ziko-server": "^0.0.7"
   }
 }

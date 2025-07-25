@@ -7,12 +7,6 @@ import {
 
 // import { renderDomToString } from "ziko-server/server-only-utils"
 
-// import {JSDOM} from "jsdom"
-// const {document} = new JSDOM().window;
-// globalThis.document = document
-
-// const renderDomToString=UIElement=>UIElement.outerHTML;
-
 export async function EntryServer({ pages } = {}) {
   return async function render(path) {
     const routes = Object.keys(pages);

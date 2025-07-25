@@ -13,10 +13,10 @@
     "dependencies": {
         "express": "^5.0.1",
         "van-mdx": "^0.0.1",
-        "van-server": "^0.0.0",
         "vanjs-core": "^1.5.5",
         "vanjs-lucide": "^0.0.4",
-        "vite": "^6.0.7"
+        "vite": "^6.0.7",
+        "ziko": "^0.0.29"
     },
     "devDependencies": {
         "cross-env": "^7.0.3"

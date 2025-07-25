@@ -7,9 +7,9 @@ export default function RepoCard(repoName, description, starsCount, forksCount){
             display : flex; 
             flex-direction: column; 
             align-items: center;
-            width : 100%;
+            width : 70%;
             min-height : 200px;
-            margin : 0 10px;
+            margin : 0 auto;
             `},
         h2(repoName),
         div(

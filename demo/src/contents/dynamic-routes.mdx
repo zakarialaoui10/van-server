@@ -1,0 +1,35 @@
+---
+---
+import "highlight.js/styles/github.css";
+import RepoCard from "../components/RepoCard.js"
+
+Dynamic routing in **van-server** allows you to define URL parameters directly within your file-based routing system, enabling flexible and reusable page templates for variable data (e.g., blog posts, user profiles, product pages).
+
+✅ How It Works
+Dynamic segments are defined using square brackets in your file names. For example:
+
+```
+/pages
+├── index.js           -> /
+├── about.js           -> /about
+├── repos
+│   ├──[owner]
+|        ├──[repo]     -> /repos/owner/{owner}/repo/{repo}    
+```
+
+When a request is made to a path like `/repos/owner/zakarialaoui10/repo/van-mdx`, 
+van-server will automatically match it to `/pages/repos/[owner]/[repo].js` and extract \{owner, repo} as params
+
+We can use these parameters like this:
+```js
+...
+const App = async({owner = "zakarialaoui10", repo = "zikojs"} = {}) =>{
+    const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}`)
+    const {stargazers_count, description, forks} = await resp.json()
+    return Layout(
+        RepoCard(repo, description, stargazers_count, forks)
+    )}
+export default App
+```
+
+This is an example of a Repo Card using Dynamic RoutesThis is a practical example of how to build a RepoCard component using Dynamic Routes in van-server, dynamically fetching data based on the URL parameters.

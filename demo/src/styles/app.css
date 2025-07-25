@@ -19,6 +19,14 @@ a:hover{
     color: blue;
 }
 
+pre{
+    margin: 10px;
+    padding: 1em;
+    color : darkblue;
+    background-color: springgreen;
+    border: 2px darkblue solid;
+}
+
 .Layout{
     display: flex;
     border: 1px red solid;

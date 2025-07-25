@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import "../app.css"
+import "@styles/app.css"
 const {aside, main, div, nav, a} = van.tags;
 export default function Layout(Content){
     return div(
