@@ -1,10 +1,16 @@
+main{
+    overflow-x: hidden;
+}
 html, body{
     margin: 1em;
-    padding: 5px;
     font-family: Verdana;
     font-size: 16px;
     background-color: antiquewhite;
     color: darkslategrey;
+}
+
+main{
+    padding: 0 1em;
 }
 
 strong{
@@ -25,19 +31,39 @@ pre{
     color : darkblue;
     background-color: springgreen;
     border: 2px darkblue solid;
+    width: 80%;
+    overflow-x: scroll;
+    scrollbar-color: rebeccapurple white;
+    scrollbar-width: thin;
 }
 
+/* p{
+    text-wrap: wrap;
+} */
 .Layout{
     display: flex;
-    border: 1px red solid;
 }
 
 .navigation{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    gap : 2em;
+    height: 200px;
     min-width: 100px;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px red solid;   
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+aside{
+    display: flex;
+    align-items: center;
+    border-right: 5px darkblue solid;   
+    position: sticky;
+    top : 5em;
+    height: 300px;
+}
+
+/* .horizontal-nav{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+} */
