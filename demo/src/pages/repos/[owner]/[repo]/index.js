@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import Layout from "@layout";
+import Layout from "@layouts";
 import RepoCard from "@components/RepoCard.js";
 const {div, h1, p, a} = van.tags;
 import "@styles/app.css"
