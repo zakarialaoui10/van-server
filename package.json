@@ -1,6 +1,6 @@
 {
   "name": "van-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "server-side rendering for VanJS with file-based routing and client-side hydration.",
   "source": "src/index.js",
   "scripts": {
