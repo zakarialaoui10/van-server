@@ -1,0 +1,68 @@
+## Strcuture 
+
+```
+my-van-app/
+├── pages/
+│   ├── index.js          // → /
+│   └── about.js          // → /about
+│   └── article
+│         └── [title]        // → /article/title/{title}
+├── public/               // static assets
+├── entry-client.js       // client hydration
+├── entry-server.js       // SSR entry
+└── server.js             // app startup
+```
+### Entry Client 
+Used on the client side to hydrate server-rendered HTML.
+```js
+import {EntryClient} from "van-server/entry-client";
+EntryClient({
+  pages : import.meta.glob("./pages/**/*{.js}")
+})
+```
+`import.meta.glob(...)` is Vite’s dynamic import utility used for route discovery.
+
+### Entry Server
+Used by the server to resolve routes and generate HTML.
+```js
+import {defineServerEntry} from "van-server/entry-server";
+export default defineServerEntry({
+   pages : import.meta.glob("./pages/**/*{.js}")
+})
+```
+### Server
+Starts the development or production server with SSR + hydration support.
+
+```js
+import { createServer } from "van-server/server";
+createServer()
+```
+
+## How Routing Works ?
+
+Each file inside the pages/ directory maps to a route:
+|File|Route|Type|
+|-|-|-|
+|pages/index.js|`/`|Static|
+|pages/about.js|`/about`|Static|
+|pages/[lang]/about.js|`/lang/{lang}/about`|Dynamics|
+
+Dynamic Routes are ssuported using `Params`
+
+**Example**
+
+```js
+// pages/[lang]/about.js
+import van from "vanjs-core";
+import data from "./data"
+const { h1, div } = van.tags;
+export default ({lang}) => {
+  ....
+  return div(data.about[lang]);
+}
+
+```
+
+## 💡 How Hydration Works
+
+After the server renders the HTML, VanJS is used on the client to rebind interactive components via EntryClient. This happens on **`DOMContentLoaded`** .

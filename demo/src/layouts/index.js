@@ -8,7 +8,7 @@ export default function Layout(Content){
             nav(
                 { class : "navigation"},
                 a({href : "/"}, "Home"),
-                a({href : "/"}, "Features"),
+                a({href : "/process"}, "Process"),
                 a({href : "/repos/owner/zakarialaoui10/repo/van-mdx"}, "Dynamic Routes"),
                 a({href : "/about"}, "About"),
             )
