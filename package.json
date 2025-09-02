@@ -1,6 +1,6 @@
 {
   "name": "van-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "server-side rendering for VanJS with file-based routing and client-side hydration.",
   "source": "src/index.js",
   "scripts": {
@@ -37,6 +37,6 @@
   "dependencies": {
     "express": "^4.21.2",
     "jsdom": "^26.1.0",
-    "ziko-server": "^0.0.7"
+    "ziko-server": "^0.9.4"
   }
 }
