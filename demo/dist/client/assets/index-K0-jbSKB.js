@@ -1,1 +1,0 @@
-import{S as a,h as o}from"./ziko-BOnFrIYV.js";const e=async t=>{console.log({id:t});const s=await(await fetch(`https://jsonplaceholder.typicode.com/todos/${t}`)).json();return o(s.title)},p=({id:t})=>a(o("... waiting"),()=>e(t));export{p as default};
